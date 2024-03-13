@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">proyecto</string>
     <string name="registreTextView">Sign Up</string>
+    <string-array name="country_array">
+        <item>Colombia</item>
+    </string-array>
+    <string-array name="city">
+        <item>Bogotá</item>
+        <item>Medellín</item>
+        <item>Cali</item>
+        <item>Barranquilla</item>
+        <item>Villavicencio</item>
+        <item>Ibagué</item>
+        <item>Neiva</item>
+        <item>Sta. Marta</item>
+        <item>Cartagena</item>
+    </string-array>
 </resources>
