@@ -1,10 +1,24 @@
 package com.example.proyecto.usuariomvc;
 
-public class UsuarioModel {
-    public void insertarUsuario(String username, String firstname, String lastname, String email, int phone, String address, String country, String city, String birthdate, String role, String created_at) {
-        // Aquí iría el código para insertar el usuario en la base de datos
-        // Puedes utilizar la conexión a la base de datos que ya tienes establecida
-        // Por simplicidad, en este ejemplo solo se imprime un mensaje
+import java.sql.Connection;
+import java.sql.Statement;
 
+public class UsuarioModel {
+
+
+    public void insertarUsuario(String username, String firstname, String lastname, String email, long phone, String address, String country, String city, String birthdate, String role) {
+        Connection connection;
+        Statement statement;
+
+        //  try{
+        //connection = mySql.getConnection();
+        //statement = connection.createStatement();
+        // String sql = "INSERT INTO usuario (username, firstname, lastname, email, phone, address, country, city, birthdate, role, created_at) VALUES ('" + username + "', '" + firstname + "', '" + lastname + "', '" + email + "', " + phone + ", '" + address + "', '" + country + "', '" + city + "', '" + birthdate + "', '" + role + "')";
+        // statement.executeQuery(sql);
+        //}catch (SQLException e){
+        //   System.out.println(e.getErrorCode());
+        //};
+
+        //}
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">proyecto</string>
+    <string name="app_name">TuCarga Ya</string>
     <string name="registreTextView">Sign Up</string>
     <string-array name="country_array">
         <item>Colombia</item>
