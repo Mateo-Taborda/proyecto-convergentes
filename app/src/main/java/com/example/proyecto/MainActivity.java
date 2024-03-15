@@ -9,14 +9,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     MySQLConnection mySql;
-    public void onClickRegister(View view){
+    public void onClickShowRegisterUI(View view){
         startActivity(new Intent(this, Register.class));;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mySql = new MySQLConnection();
-
     }
 }

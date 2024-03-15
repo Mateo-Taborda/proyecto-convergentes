@@ -31,6 +31,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
+    <ImageView
+        android:id="@+id/shape_bottom"
+        android:layout_width="490dp"
+        android:layout_height="480dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="-320dp"
+        android:src="@drawable/_67_organic_black_shapes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
 
     <TextView
         android:id="@+id/login_text"
@@ -109,6 +121,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.462" />
     <EditText
+        android:id="@+id/psswrd"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/textbox_login"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Contraseña"
+        android:inputType="text"
+        android:textColorHint="#EDEDED"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <EditText
         android:id="@+id/phone"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -119,25 +151,6 @@
         android:gravity="center"
         android:hint="Teléfono"
         android:inputType="number"
-        android:textColorHint="#EDEDED"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
-    <EditText
-        android:id="@+id/address"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/textbox_login"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Dirección"
-        android:inputType="text"
         android:textColorHint="#EDEDED"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,6 +170,8 @@
         android:ems="10"
         android:textColor="#FFFFFF"
         android:entries="@array/country_array"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -173,6 +188,8 @@
         android:background="@drawable/textbox_login"
         android:ems="10"
         android:entries="@array/city"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,20 +199,6 @@
         app:layout_constraintVertical_bias="0.762"
         />
 
-    <DatePicker
-        android:id="@+id/birthdate"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:datePickerMode="calendar"
-        android:ems="10"
-        android:headerBackground="@drawable/textbox_login"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="215dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.855"></DatePicker>
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="0dp"
@@ -212,18 +215,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.87"/>
 
-    <ImageView
-        android:id="@+id/shape_bottom"
-        android:layout_width="490dp"
-        android:layout_height="480dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="-320dp"
-        android:src="@drawable/_67_organic_black_shapes"
+    <Button
+        android:id="@+id/calendarEnabler"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="215dp"
+        android:backgroundTint="@color/blue_less"
+        android:textColor="#FFFFFF"
+        android:text="F. de nacimiento"
+        android:onClick="onClickShowCalendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.87" />
+
     <Button
         android:id="@+id/register_button"
         android:layout_width="0dp"
