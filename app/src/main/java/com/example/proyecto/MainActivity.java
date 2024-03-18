@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    MySQLConnection mySql;
     public void onClickShowRegisterUI(View view){
         startActivity(new Intent(this, Register.class));;
     }

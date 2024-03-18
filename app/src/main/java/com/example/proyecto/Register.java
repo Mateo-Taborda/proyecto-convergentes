@@ -2,6 +2,7 @@ package com.example.proyecto;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -50,17 +51,12 @@ private String birthdate;
             if(id_userType.isChecked()){
                 userType = "Conductor";
             }else userType="Cliente";
-
-
-           // miController.insertarUsuario(firstname +  " " + lastname, firstname,lastname, email, phone, password, country, city,birthdate,userType );
-
+           miController.insertarUsuario(Register.this, firstname,lastname, email, password , phone , country, city, birthdate, userType);
+            Toast.makeText(this, "Registro exitoso, inicie sesión", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         }else{
-            MySQLConnection mySql = new MySQLConnection();
-            if(mySql.getConnection()!= null){
-                Toast.makeText(this, "Se conectó a la bd", Toast.LENGTH_SHORT).show();
-            }else Toast.makeText(this, "No se conectó", Toast.LENGTH_SHORT).show();
-
-            //Toast.makeText(this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
         }
          }
          public void onClickShowCalendar(View view){
