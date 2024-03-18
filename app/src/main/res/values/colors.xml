@@ -5,4 +5,5 @@
     <color name="blue_background">#1e325c</color>
     <color name="blue_less">#29447d</color>
     <color name="dark_blue">#00008B</color>
+    <color name="colorAccent">#F44336</color>
 </resources>
