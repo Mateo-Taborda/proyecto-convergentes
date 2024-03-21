@@ -18,12 +18,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/shape_bottom"
+        android:layout_width="490dp"
+        android:layout_height="480dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="-560dp"
+        android:src="@drawable/_67_organic_black_shapes"
+        app:layout_constraintBottom_toTopOf="@+id/forget_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="311dp"
         android:layout_height="355dp"
         android:layout_marginTop="-40dp"
+        android:contentDescription="Truck"
         android:src="@drawable/truck1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,29 +134,18 @@
     <TextView
         android:id="@+id/register_message"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="118dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="90dp"
         android:fontFamily="sans-serif-condensed"
+        android:onClick="onClickShowRegisterUI"
         android:text="¿No tienes una cuenta? Crea una"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textStyle="bold"
-        android:onClick="onClickShowRegisterUI"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/shape_bottom"
-        android:layout_width="490dp"
-        android:layout_height="480dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="-560dp"
-        android:src="@drawable/_67_organic_black_shapes"
-        app:layout_constraintBottom_toTopOf="@+id/forget_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
