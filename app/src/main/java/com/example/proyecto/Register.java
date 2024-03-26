@@ -73,13 +73,13 @@ private String birthdate;
          }
     public void userRegister(String name, String lastname, String email, String password, long phone, String country, String city, String birthdate, String usertype )  {
         String username = name + " " + lastname;
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.10.12/restAPI/insertar.php", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112/restAPI/insertar.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
-                        if (response.equalsIgnoreCase("datos insertados")) {
+                        if (response.equalsIgnoreCase("1")) {
                             Toast.makeText (Register.this, "Registrado, inicie sesión", Toast.LENGTH_SHORT).show();
-                        } else if (response.equalsIgnoreCase("datos error")) {
+                        } else if (response.equalsIgnoreCase("0")) {
                             Toast.makeText(Register.this,"Error, intente más tarde", Toast.LENGTH_SHORT).show();
                         }
             }
