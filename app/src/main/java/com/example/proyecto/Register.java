@@ -8,17 +8,20 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import com.example.proyecto.usuariomvc.UsuarioController;
-
-import java.sql.SQLException;
-import java.util.Date;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends Activity {
-UsuarioController miController = new UsuarioController();
+
 private String birthdate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,7 @@ private String birthdate;
         setContentView(R.layout.register_layout);
 
     }
-    public void onClickRegister(View view) throws SQLException {
+    public void onClickRegister(View view)  {
         EditText id_firstname = findViewById(R.id.firstname);
         EditText id_lastname = findViewById(R.id.lastname);
         EditText id_email = findViewById(R.id.email);
@@ -51,10 +54,9 @@ private String birthdate;
             if(id_userType.isChecked()){
                 userType = "Conductor";
             }else userType="Cliente";
-           miController.insertarUsuario(Register.this, firstname,lastname, email, password , phone , country, city, birthdate, userType);
-            Toast.makeText(this, "Registro exitoso, inicie sesión", Toast.LENGTH_SHORT).show();
+          userRegister(firstname,lastname, email, password , phone , country, city, birthdate, userType);
             startActivity(new Intent(this, MainActivity.class));
-            finish();
+
         }else{
             Toast.makeText(this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
         }
@@ -69,4 +71,41 @@ private String birthdate;
              }, 2000, 3, 19);
             dialog.show();
          }
+    public void userRegister(String name, String lastname, String email, String password, long phone, String country, String city, String birthdate, String usertype )  {
+        String username = name + " " + lastname;
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.10.12/restAPI/insertar.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                        if (response.equalsIgnoreCase("datos insertados")) {
+                            Toast.makeText (Register.this, "Registrado, inicie sesión", Toast.LENGTH_SHORT).show();
+                        } else if (response.equalsIgnoreCase("datos error")) {
+                            Toast.makeText(Register.this,"Error, intente más tarde", Toast.LENGTH_SHORT).show();
+                        }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Register.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("username", username);
+                parametros.put("firstname", name);
+                parametros.put("lastname", lastname);
+                parametros.put("email", email);
+                parametros.put("psswrd", password);
+                parametros.put("phone", String.valueOf(phone));
+                parametros.put("country", country);
+                parametros.put("city", city);
+                parametros.put("birthdate", birthdate);
+                parametros.put("usertype", usertype);
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(Register.this);
+        requestQueue.add(request);
+    }
 }
